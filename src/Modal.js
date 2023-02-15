@@ -17,7 +17,7 @@ function Modal({ visible, setVisible, heading, data }) {
         style={{
           height: "100%",
           width: "100%",
-          background: "green",
+          background: "black",
           opacity: "0.3",
           position: "absolute",
         }}
