@@ -18,7 +18,7 @@ function Modal({ visible, setVisible, heading, data }) {
           height: "100%",
           width: "100%",
           background: "black",
-          opacity: "0.3",
+          opacity: "0.1",
           position: "absolute",
         }}
         onClick={() => setVisible(false)}
@@ -33,6 +33,7 @@ function Modal({ visible, setVisible, heading, data }) {
           transform: "translateX(-50%) translateY(-50%)",
           background: "white",
           position: "relative",
+          boxShadow: "rgba(17, 12, 46, 0.15) 0px 48px 100px 0px",
         }}
       >
         <h2
