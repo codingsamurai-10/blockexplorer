@@ -48,11 +48,15 @@ function App() {
       <h1 style={{ marginBottom: "16px" }}>Five latest blocks</h1>
       <div style={{ display: "flex" }}>
         {blockData.map((block) => (
-          <Block
-            blockData={block}
+          <div
+            onClick={() => {
+              setModalData(block);
+              setVisible(true);
+            }}
             key={block.hash}
-            onClick={() => console.log("click")}
-          />
+          >
+            <Block blockData={block} />
+          </div>
         ))}
       </div>
       <Modal
@@ -60,6 +64,7 @@ function App() {
         setVisible={setVisible}
         heading={"Block"}
         data={modalData}
+        setData={setModalData}
       />
     </div>
   );

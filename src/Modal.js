@@ -44,7 +44,7 @@ function Modal({ visible, setVisible, heading, data }) {
         </h2>
         <ul style={{ listStyleType: "none" }}>
           {Object.keys(data).map((key) => (
-            <li>
+            <li key={key}>
               <span
                 style={{
                   color: "orange",
@@ -55,7 +55,26 @@ function Modal({ visible, setVisible, heading, data }) {
               >
                 {key}
               </span>{" "}
-              {data[key]}
+              {typeof data[key] === "object" ? (
+                data[key].length ? (
+                  <a
+                    href={`https://etherscan.io/txs?block=${data.number}`}
+                    rel="noreferrer"
+                    target="_blank"
+                    style={{
+                      textDecoration: "underline",
+                      color: "blue",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {data[key].length} {key}
+                  </a>
+                ) : (
+                  data[key].toString()
+                )
+              ) : (
+                data[key]
+              )}
             </li>
           ))}
         </ul>
